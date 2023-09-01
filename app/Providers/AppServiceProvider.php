@@ -77,9 +77,10 @@ class AppServiceProvider extends ServiceProvider
             // share the setting variable to all the views
             view()->share('setting', $setting);
         }
-        // else {
-        //     throw new \Exception('No database connection found. Please run your database server or check your database connection configuration in .env file.');
-        // }
+
+        if (app()->environment('local') && !$this->databaseConnectionExists()) {
+            throw new \Exception('No database connection found. Please run your database server or check your database connection configuration in .env file.');
+        }
 
 
         // create a macro search for data range in the builder

@@ -17,6 +17,7 @@
         "yoeunes/toastr": "^2.3"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "doctrine/dbal": "^3.6",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
