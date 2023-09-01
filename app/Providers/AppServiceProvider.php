@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\DB;
 use Database\Seeders\SettingSeeder;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Builder;
@@ -19,6 +21,14 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
+    protected function databaseExists($databaseName)
+    {
+        $query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$databaseName'";
+        $result = DB::select($query);
+
+        return count($result) > 0;
+    }
+
     /**
      * Bootstrap any application services.
      *
@@ -26,9 +36,24 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $setting = \App\Models\Setting::first();
+        Schema::defaultStringLength(191);
+        $setting = \App\Models\Setting::first() ?? null;
+
+        // check if database exist, if not exist then create the database
+        $databaseName = config('database.connections.mysql.database');
+
+        if (!$this->databaseExists($databaseName)) {
+            $charset = config('database.connections.mysql.charset', 'utf8mb4');
+            $collation = config('database.connections.mysql.collation', 'utf8mb4_unicode_ci');
+
+            DB::statement("CREATE DATABASE $databaseName CHARACTER SET $charset COLLATE $collation");
+        }
+
         // check if setting is not null, if not null then run the SettingSeeder to create the setting
         if ($setting == null) {
+            // run the migration
+            Artisan::call('migrate');
+            // run the seeder
             Artisan::call('db:seed', [
                 '--class' => SettingSeeder::class
             ]);

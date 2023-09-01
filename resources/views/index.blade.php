@@ -72,7 +72,7 @@
 		<!-- Slideshow end -->
 
 		<!-- Why choose
-																																							============================================= -->
+																																												============================================= -->
 		<section class="section bg-light">
 			<div class="container">
 				<h2 class="text-9 text-center">Why should you choose {{ $setting ? $setting->site_name : config('app.name') }}?</h2>
@@ -83,7 +83,10 @@
 						<div class="featured-box">
 							<div class="featured-box-icon text-primary"> <i class="fas fa-hand-pointer"></i> </div>
 							<h3>Easy to use</h3>
-							<p class="text-3">Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.
+							<p class="text-3">
+								{{ $setting ? $setting->site_name : config('app.name') }} is easy to use and intuitive, so you can spend less
+								time
+								managing your money, and more time living your life.
 							</p>
 							<a href="#" class="btn-link text-3">Learn more<i class="fas fa-chevron-right text-1 ml-2"></i></a>
 						</div>
@@ -92,7 +95,11 @@
 						<div class="featured-box">
 							<div class="featured-box-icon text-primary"> <i class="fas fa-share"></i> </div>
 							<h3>Faster Payments</h3>
-							<p class="text-3">Persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.</p>
+							<p class="text-3">
+								{{ $setting ? $setting->site_name : config('app.name') }} is easy to use and intuitive, so you can spend less
+								time
+								managing your money, and more time living your life.
+							</p>
 							<a href="#" class="btn-link text-3">Learn more<i class="fas fa-chevron-right text-1 ml-2"></i></a>
 						</div>
 					</div>
@@ -100,8 +107,11 @@
 						<div class="featured-box">
 							<div class="featured-box-icon text-primary"> <i class="fas fa-dollar-sign"></i> </div>
 							<h3>Lower Fees</h3>
-							<p class="text-3">Essent lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim
-								iriure.</p>
+							<p class="text-3">
+								{{ $setting ? $setting->site_name : config('app.name') }} is easy to use and intuitive, so you can spend less
+								time
+								managing your money, and more time living your life.
+							</p>
 							<a href="#" class="btn-link text-3">Learn more<i class="fas fa-chevron-right text-1 ml-2"></i></a>
 						</div>
 					</div>
@@ -109,8 +119,11 @@
 						<div class="featured-box">
 							<div class="featured-box-icon text-primary"> <i class="fas fa-lock"></i> </div>
 							<h3>100% secure</h3>
-							<p class="text-3">Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim
-								iriure.</p>
+							<p class="text-3">
+								{{ $setting ? $setting->site_name : config('app.name') }} is easy to use and intuitive, so you can spend less
+								time
+								managing your money, and more time living your life.
+							</p>
 							<a href="#" class="btn-link text-3">Learn more<i class="fas fa-chevron-right text-1 ml-2"></i></a>
 						</div>
 					</div>
@@ -120,16 +133,18 @@
 		<!-- Why choose end -->
 
 		<!-- Payment Solutions
-																																							============================================= -->
+																																												============================================= -->
 		<section class="section">
 			<div class="container overflow-hidden">
 				<div class="row">
 					<div class="col-lg-5 col-xl-6 d-flex">
 						<div class="my-auto pb-5 pb-lg-0">
 							<h2 class="text-9">Payment Solutions for anyone.</h2>
-							<p class="text-4">Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim
-								iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. lisque
-								persius interesset his et, in quot quidam mea essent possim iriure.</p>
+							<p class="text-4">
+								{{ $setting ? $setting->site_name : config('app.name') }} is easy to use and intuitive, so you can spend less
+								time
+								managing your money, and more time living your life.
+							</p>
 							<a href="#" class="btn-link text-4">Find more solution<i class="fas fa-chevron-right text-2 ml-2"></i></a>
 						</div>
 					</div>
@@ -179,11 +194,14 @@
 		<!-- Payment Solutions end -->
 
 		<!-- What can you do
-																																							============================================= -->
+																																												============================================= -->
 		<section class="section bg-light">
 			<div class="container">
 				<h2 class="text-9 text-center">What can you do with {{ $setting ? $setting->site_name : config('app.name') }}?</h2>
-				<p class="text-4 text-center mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+				<p class="text-4 text-center mb-5">
+					{{ $setting ? $setting->site_name : config('app.name') }} is easy to use and intuitive, so you can spend less time
+					managing your money, and more time living your life.
+				</p>
 				<div class="row">
 					<div class="col-sm-6 col-lg-3 mb-4"> <a href="#">
 							<div class="featured-box style-5 rounded">
@@ -217,7 +235,7 @@
 		<!-- What can you do end -->
 
 		<!-- How work
-																																							============================================= -->
+																																												============================================= -->
 		<section class="section">
 			<div class="container">
 				<div class="row">
@@ -233,8 +251,13 @@
 					<div class="col-lg-6 mt-5 mt-lg-0">
 						<div class="ml-4">
 							<h2 class="text-9">How does it work?</h2>
-							<p class="text-4">Quidam lisque persius interesset his et, in quot quidam persequeris essent possim iriure. Lorem
-								Ipsum is simply dummy text of the printing and typesetting industry.</p>
+							<p class="text-4">
+								A better way to manage your money
+								{{ $setting ? $setting->site_name : config('app.name') }} is a new way to manage your money. You can use
+								{{ $setting ? $setting->site_name : config('app.name') }} to send money to your friends and family, pay for
+								goods and services, or even receive payments from people outside the
+								{{ $setting ? $setting->site_name : config('app.name') }} network.
+							</p>
 							<ul class="list-unstyled text-3 line-height-5">
 								<li><i class="fas fa-check mr-2"></i>Sign Up Account</li>
 								<li><i class="fas fa-check mr-2"></i>Deposit & Save Payments from worldwide</li>
@@ -249,7 +272,7 @@
 		<!-- How work end -->
 
 		<!-- Testimonial
-																																							============================================= -->
+																																												============================================= -->
 		<section class="section bg-light">
 			<div class="container">
 				<h2 class="text-9 text-center">What people are saying about
@@ -260,16 +283,26 @@
 					data-items-lg="2">
 					<div class="item">
 						<div class="testimonial rounded text-center p-4">
-							<p class="text-4">“Easy to use, reasonably priced simply dummy text of the printing and typesetting industry.
-								Quidam lisque persius interesset his et, in quot quidam possim iriure.”</p>
+							<p class="text-4">
+								“ I have been using {{ $setting ? $setting->site_name : config('app.name') }} for a while now and I
+								love it. It is the best way to transfer money from one country to another. I used to use
+								other companies but they took too long to transfer the money into my bank account. I
+								recommend {{ $setting ? $setting->site_name : config('app.name') }} to all my friends and family
+								who need to use money transfer services. ”
+							</p>
 							<strong class="d-block font-weight-500">Jay Shah</strong> <span class="text-muted">Founder at Icomatic Pvt
 								Ltd</span>
 						</div>
 					</div>
 					<div class="item">
 						<div class="testimonial rounded text-center p-4">
-							<p class="text-4">“I am happy Working with printing and typesetting industry. Quidam lisque persius interesset
-								his et, in quot quidam persequeris essent possim iriure.”</p>
+							<p class="text-4">
+								“ I have been using {{ $setting ? $setting->site_name : config('app.name') }} for a while now and I
+								love it. It is the best way to transfer money from one country to another. I used to use
+								other companies but they took too long to transfer the money into my bank account. I
+								recommend {{ $setting ? $setting->site_name : config('app.name') }} to all my friends and family
+								who need to use money transfer services. ”
+							</p>
 							<strong class="d-block font-weight-500">Patrick Cary</strong> <span class="text-muted">Freelancer from
 								USA</span>
 						</div>
@@ -310,7 +343,7 @@
 		<!-- Testimonial end -->
 
 		<!-- Customer Support
-																																							============================================= -->
+																																												============================================= -->
 		<section class="hero-wrap section shadow-md">
 			<div class="hero-mask opacity-9 bg-primary"></div>
 			<div class="hero-bg" style="background-image:url('{{ asset('assets/images/bg/image-2.jpg') }}');"></div>
@@ -326,7 +359,7 @@
 		<!-- Customer Support end -->
 
 		<!-- Mobile App
-																																							============================================= -->
+																																												============================================= -->
 		<section class="section py-5">
 			<div class="container">
 				<div class="justify-content-center text-center">
@@ -347,7 +380,7 @@
 	<!-- Content end -->
 
 	<!-- Video Modal
-																									============================================= -->
+																														============================================= -->
 	<div class="modal fade" id="videoModal" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 			<div class="modal-content bg-transparent border-0">
