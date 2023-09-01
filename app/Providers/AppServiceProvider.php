@@ -36,6 +36,20 @@ class AppServiceProvider extends ServiceProvider
     {
         try {
             DB::connection()->getPdo();
+
+            // check if setting is not null, if not null then run the SettingSeeder to create the setting
+            $setting = \App\Models\Setting::first() ?? null;
+            if ($setting == null) {
+                // run the migration
+                Artisan::call('migrate');
+                // run the seeder
+                Artisan::call('db:seed', [
+                    '--class' => SettingSeeder::class
+                ]);
+            }
+            // share the setting variable to all the views
+            view()->share('setting', $setting);
+
             return true;
         } catch (Exception) {
             return false;
@@ -62,20 +76,6 @@ class AppServiceProvider extends ServiceProvider
 
                 DB::statement("CREATE DATABASE $databaseName CHARACTER SET $charset COLLATE $collation");
             }
-
-
-            // check if setting is not null, if not null then run the SettingSeeder to create the setting
-            $setting = \App\Models\Setting::first() ?? null;
-            if ($setting == null) {
-                // run the migration
-                Artisan::call('migrate');
-                // run the seeder
-                Artisan::call('db:seed', [
-                    '--class' => SettingSeeder::class
-                ]);
-            }
-            // share the setting variable to all the views
-            view()->share('setting', $setting);
         }
 
         if (app()->environment('local') && !$this->databaseConnectionExists()) {
