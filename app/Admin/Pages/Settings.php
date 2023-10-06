@@ -99,34 +99,34 @@ class Settings extends Page implements Forms\Contracts\HasForms
                     Forms\Components\TextInput::make('site_name')->required(),
                     Forms\Components\TextInput::make('site_email')->required(),
                     Forms\Components\TextInput::make('site_phone')->required(),
-                    Forms\Components\TextInput::make('site_phone2')->required(),
+                    Forms\Components\TextInput::make('site_phone2'),
                     Forms\Components\TextInput::make('site_address')->required()->columnSpanFull(),
-                    Forms\Components\FileUpload::make('site_logo')->image()->required()->columnSpanFull(),
-                    Forms\Components\FileUpload::make('site_favicon')->image()->required()->columnSpanFull(),
+                    Forms\Components\FileUpload::make('site_logo')->image()->columnSpanFull(),
+                    Forms\Components\FileUpload::make('site_favicon')->image()->columnSpanFull(),
                     Forms\Components\Textarea::make('about_us')->required()->columnSpanFull(),
                     Forms\Components\Textarea::make('mission')->required(),
                     Forms\Components\Textarea::make('vision')->required(),
                 ])->columns(2),
             Forms\Components\Card::make()
                 ->schema([
-                    Forms\Components\Textarea::make('site_description')->required(),
+                    Forms\Components\Textarea::make('site_description'),
                 ]),
             Forms\Components\Card::make()
                 ->schema([
-                    Forms\Components\TextInput::make('facebook_url')->required(),
-                    Forms\Components\TextInput::make('twitter_url')->required(),
-                    Forms\Components\TextInput::make('instagram_url')->required(),
-                    Forms\Components\TextInput::make('linkedin_url')->required(),
-                    Forms\Components\TextInput::make('youtube_url')->required(),
-                    Forms\Components\TextInput::make('whatsapp_contact')->required(),
-                    Forms\Components\TextInput::make('telegram_contact')->required(),
+                    Forms\Components\TextInput::make('facebook_url'),
+                    Forms\Components\TextInput::make('twitter_url'),
+                    Forms\Components\TextInput::make('instagram_url'),
+                    Forms\Components\TextInput::make('linkedin_url'),
+                    Forms\Components\TextInput::make('youtube_url'),
+                    Forms\Components\TextInput::make('whatsapp_contact'),
+                    Forms\Components\TextInput::make('telegram_contact'),
                 ])->columns(2),
             Forms\Components\Card::make()
                 ->schema([
                     Forms\Components\TextInput::make('currency')->required(),
-                    Forms\Components\TextInput::make('transaction_fee')->required(),
-                    Forms\Components\TextInput::make('saving_withdrawal_limit')->required(),
-                    Forms\Components\TextInput::make('withdrawal_limit_period')->required(),
+                    Forms\Components\TextInput::make('transaction_fee')->numeric()->minValue(0)->required(),
+                    Forms\Components\TextInput::make('saving_withdrawal_limit')->numeric()->minValue(0)->required(),
+                    Forms\Components\TextInput::make('withdrawal_limit_period')->numeric()->minValue(0)->required(),
                 ])->columns(2),
         ];
     }
