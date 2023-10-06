@@ -8,7 +8,7 @@
 				<div class="logo">
 					<a class="d-flex" href="{{ url('/') }}"
 						title="{{ $setting ? $setting->site_name : config('app.name') }} - Personal Account">
-						<img
+						<img style="max-height: 50px;"
 							src="{{ $setting->site_logo != null ? asset('storage/' . $setting->site_logo) : asset('assets/images/logo.png') }}"
 							alt="{{ $setting ? $setting->site_name : config('app.name') }}" />
 					</a>

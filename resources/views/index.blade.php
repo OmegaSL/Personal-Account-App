@@ -31,8 +31,7 @@
 						<div class="container text-center">
 							<h2 class="text-16 text-white">Deposit & Save Money</h2>
 							<p class="text-5 text-white mb-4">Quickly and easily deposit, withdraw and save money online with
-								{{ $setting ? $setting->site_name : config('app.name') }}.<br class="d-none d-lg-block">
-								Over 180 countries and 120 currencies supported.</p>
+								{{ $setting ? $setting->site_name : config('app.name') }}.<br class="d-none d-lg-block"></p>
 							<a href="{{ route('register') }}" class="btn btn-primary m-2">
 								Open a Free Account
 							</a>

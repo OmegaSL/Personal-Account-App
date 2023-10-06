@@ -19,8 +19,8 @@ class Settings extends Page implements Forms\Contracts\HasForms
     public $site_email;
     public $site_phone;
     public $site_address;
-    // public $site_logo;
-    // public $site_favicon;
+     public $site_logo;
+     public $site_favicon;
     public $about_us;
     public $mission;
     public $vision;
@@ -69,8 +69,8 @@ class Settings extends Page implements Forms\Contracts\HasForms
         $this->site_phone = $this->setting->site_phone;
         $this->site_phone2 = $this->setting->site_phone2;
         $this->site_address = $this->setting->site_address;
-        // $this->site_logo = $this->setting->site_logo;
-        // $this->site_favicon = $this->setting->site_favicon;
+         $this->site_logo = $this->setting->site_logo;
+         $this->site_favicon = $this->setting->site_favicon;
         $this->about_us = $this->setting->about_us;
         $this->mission = $this->setting->mission;
         $this->vision = $this->setting->vision;

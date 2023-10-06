@@ -25,10 +25,12 @@ class TransactionComponent extends Component
 
     public function render()
     {
+//	    $this->user->transactions()->latest()->take(7)->get()
         return view('livewire.transaction-component', [
             'transactions' => Transaction::with(['payment_method'])
                 ->latest()
                 ->searchDateRange($this->dateFrom, $this->dateTo)
+	            ->where('user_id', $this->user->id)
                 ->where('status', 'LIKE', '%' . $this->filterBy . '%')
                 ->paginate(10)
         ])->extends('layouts.app');
