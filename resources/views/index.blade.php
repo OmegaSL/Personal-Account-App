@@ -44,29 +44,29 @@
 					</div>
 				</section>
 			</div>
-			<div class="item">
-				<section class="hero-wrap section shadow-md">
-					<div class="hero-bg" style="background-image:url('{{ asset('assets/images/bg/image-3.jpg') }}');"></div>
-					<div class="hero-content py-2 py-lg-4">
-						<div class="container">
-							<div class="row">
-								<div class="col-12 col-lg-8 col-xl-7 text-center text-lg-left">
-									<h2 class="text-13 text-white">Trusted by more than 50,000 people worldwide.</h2>
-									<p class="text-5 text-white mb-4">Over 180 countries and 120 currencies supported.</p>
-									<a href="{{ route('register') }}" class="btn btn-primary mr-3">Get started for free</a> <a
-										class="btn btn-link text-light video-btn" href="#" data-src="{{ $youtube_url }}" data-toggle="modal"
-										data-target="#videoModal">
-										<span class="mr-2">
-											<i class="fas fa-play-circle"></i>
-										</span>
-										Watch Demo
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
+{{--			<div class="item">--}}
+{{--				<section class="hero-wrap section shadow-md">--}}
+{{--					<div class="hero-bg" style="background-image:url('{{ asset('assets/images/bg/image-3.jpg') }}');"></div>--}}
+{{--					<div class="hero-content py-2 py-lg-4">--}}
+{{--						<div class="container">--}}
+{{--							<div class="row">--}}
+{{--								<div class="col-12 col-lg-8 col-xl-7 text-center text-lg-left">--}}
+{{--									<h2 class="text-13 text-white">Trusted by more than 50,000 people worldwide.</h2>--}}
+{{--									<p class="text-5 text-white mb-4">Over 180 countries and 120 currencies supported.</p>--}}
+{{--									<a href="{{ route('register') }}" class="btn btn-primary mr-3">Get started for free</a> <a--}}
+{{--										class="btn btn-link text-light video-btn" href="#" data-src="{{ $youtube_url }}" data-toggle="modal"--}}
+{{--										data-target="#videoModal">--}}
+{{--										<span class="mr-2">--}}
+{{--											<i class="fas fa-play-circle"></i>--}}
+{{--										</span>--}}
+{{--										Watch Demo--}}
+{{--									</a>--}}
+{{--								</div>--}}
+{{--							</div>--}}
+{{--						</div>--}}
+{{--					</div>--}}
+{{--				</section>--}}
+{{--			</div>--}}
 		</div>
 		<!-- Slideshow end -->
 
