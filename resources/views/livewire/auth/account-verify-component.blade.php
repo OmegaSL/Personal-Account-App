@@ -15,7 +15,7 @@
 			<div class="col-11 col-sm-9 col-md-7 col-lg-5 col-xl-4 m-auto">
 				<div class="logo mb-4 text-center">
 					<a href="/" title="{{ config('app.name') }}">
-						<img src="{{ asset('assets/images/logo.png') }}" alt="{{ config('app.name') }}"></a>
+						<img style="max-height: 50px;" src="{{ asset('assets/images/logo.png') }}" alt="{{ config('app.name') }}"></a>
 				</div>
 				<form wire:submit.prevent='verify' enctype="multipart/form-data">
 					<div class="vertical-input-group">
