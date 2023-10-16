@@ -40,20 +40,41 @@ class WithdrawalComponent extends Component
             return;
         }
 
+		$setting = \App\Models\Setting::query()->first();
+
         // check withdrawal limit for saving account per withdrawal_limit_period settings
         if ($this->balance_type == 'saving_balance') {
-            $withdrawal_limit_period = \App\Models\Setting::query()->first()->withdrawal_limit_period;
-            $saving_withdrawal_limit = \App\Models\Setting::query()->first()->saving_withdrawal_limit;
-            $withdrawal_amount = \App\Models\Transaction::query()
-                ->where('user_id', auth()->user()->id)
-                ->where('type', 'withdrawal')
-                ->where('balance_type', 'saving_balance')
-                ->where('created_at', '>=', now()->subDays($withdrawal_limit_period))
-                ->sum('amount');
-            if ($withdrawal_amount + $this->amount > $saving_withdrawal_limit) {
-                toastr()->error('You have reached your withdrawal limit for this period');
-                return;
-            }
+            $withdrawal_limit_period = $setting->withdrawal_limit_period ?? 1;
+            $saving_withdrawal_limit = $setting->saving_withdrawal_limit ?? 1000;
+            // cannot withdraw from saving account more than $saving_withdrawal_limit per withdrawal_limit_period(this is in days)
+//            $withdrawal_sum = \App\Models\Transaction::query()
+//				->where('user_id', auth()->user()->id)
+//				->where('type', 'withdrawal')
+//				->where('balance_type', 'saving_balance')
+//				->where('created_at', '>=', now()->subDays($withdrawal_limit_period))
+//				->sum('amount');
+//			if ($withdrawal_sum >= $saving_withdrawal_limit) {
+//				toastr()->error('You have reached your withdrawal limit for this period in your saving account');
+//				return;
+//            }
+
+	        // the amount should not be more than the withdrawal limit
+	        if ($this->amount > $saving_withdrawal_limit) {
+		        toastr()->error('You cannot withdraw more than ' . $setting->currency . $saving_withdrawal_limit . ' from your saving account per withdrawal');
+		        return;
+	        }
+
+			// cannot withdraw from saving account more than $withdrawal_limit_period(this is in days) times per day
+	        $withdrawal_count = \App\Models\Transaction::query()
+				->where('user_id', auth()->user()->id)
+				->where('type', 'withdrawal')
+				->where('balance_type', 'saving_balance')
+				->where('created_at', '>=', now()->subDays($withdrawal_limit_period))
+				->count();
+			if ($withdrawal_count >= $withdrawal_limit_period) {
+				toastr()->error('You have reached your withdrawal limit for this period');
+				return;
+			}
         }
 
         $transaction = new \App\Models\Transaction();
@@ -62,7 +83,7 @@ class WithdrawalComponent extends Component
         $transaction->payment_method_id = $this->payment_method;
         $transaction->reference = 'dep' . time() . rand(100, 999);
         $transaction->type = 'withdrawal';
-        $transaction->fee = $this->amount * \App\Models\Setting::query()->first()->transaction_fee / 100;
+        $transaction->fee = $this->amount * ($setting->transaction_fee ?? (0 / 100));
         $transaction->note = 'Withdrawal request';
         $transaction->balance_type = $this->balance_type; // 'basic_balance' or 'saving_balance
         $transaction->status = 'pending';

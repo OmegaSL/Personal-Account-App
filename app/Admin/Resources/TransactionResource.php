@@ -35,7 +35,7 @@ class TransactionResource extends Resource
                     ->searchable()
                     ->required(),
                 Forms\Components\Select::make('payment_method_id')
-                    ->relationship('payment_method', 'id')
+                    ->relationship('payment_method', 'account_type')
                     ->searchable(),
                 Forms\Components\TextInput::make('reference')
                     ->required()
@@ -55,6 +55,9 @@ class TransactionResource extends Resource
                     ->maxLength(65535)
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('status')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('balance_type')
                     ->required()
                     ->maxLength(255),
             ]);

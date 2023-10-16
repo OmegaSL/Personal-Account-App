@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 
 class PaymentMethod extends Model
 {
@@ -35,15 +36,15 @@ class PaymentMethod extends Model
     ];
 
     // get account_type attribute
-    public function getAccountTypeAttribute($value)
+    public function getAccountTypeAttribute($value): string
     {
-        return ucfirst($value);
+        return Str::headline($value);
     }
 
     /**
      * Get the user that owns the PaymentMethod
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function user(): BelongsTo
     {
@@ -51,9 +52,9 @@ class PaymentMethod extends Model
     }
 
     /**
-     * Get all of the transactions for the PaymentMethod
+     * Get all the transactions for the PaymentMethod
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function transactions(): HasMany
     {
