@@ -84,6 +84,7 @@ class TransactionResource extends Resource
                     ->dateTime('M j, Y')
                     ->sortable(),
             ])
+	        ->defaultSort('created_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
